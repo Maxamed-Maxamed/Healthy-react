@@ -12,6 +12,7 @@ const useRecipes = (initialQuery = '') => {
       setLoading(true);
       try {
         const data = await searchRecipes(query);
+        console.log('API Response:', data); // Add this line to log the API response
         setRecipes(data.results);
         setError(null);
       } catch (err) {

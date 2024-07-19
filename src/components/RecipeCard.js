@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Image, Text, Badge, Stack } from '@chakra-ui/react';
 
-const RecipeCard = ({ title, image, diets }) => {
+const RecipeCard = ({ title, image, diets = [] }) => {
   return (
     <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
       <Image src={image} alt={title} />
@@ -10,13 +10,15 @@ const RecipeCard = ({ title, image, diets }) => {
           <Text fontWeight="semibold" fontSize="xl" lineHeight="short">
             {title}
           </Text>
-          <Stack direction="row">
-            {diets.map((diet) => (
-              <Badge key={diet} colorScheme="green">
-                {diet}
-              </Badge>
-            ))}
-          </Stack>
+          {diets && diets.length > 0 && (
+            <Stack direction="row">
+              {diets.map((diet) => (
+                <Badge key={diet} colorScheme="green">
+                  {diet}
+                </Badge>
+              ))}
+            </Stack>
+          )}
         </Stack>
       </Box>
     </Box>

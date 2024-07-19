@@ -29,7 +29,7 @@ const HomePage = () => {
                 key={recipe.id}
                 title={recipe.title}
                 image={recipe.image}
-                diets={recipe.diets}
+                diets={recipe.diets || []}
               />
             ))}
           </SimpleGrid>
